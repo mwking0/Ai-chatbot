@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chatbot</title>
+    </head>
+    <body>
+        <h1>AI teacher</h1>
+        <form method="POST" action="/send message">
+            <input type="text" name="human_input" placeholder="Enter your request">
+            <button type="submit">send</button>
+        </form>
+        <div id="response_message"></div>
+
+        <script>
+            const form = document.querySelector('form');
+            const response_message = document.getElementById('response_message'); // Corrected ID here
+
+             form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                fetch('/send_message', {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.text()) // Corrected typo here
+                .then(data => {
+                    response_message.innerHTML = data;
+                });
+                form.reset();
+             });
+            
+        </script>
+
+    </body>
+</html>
