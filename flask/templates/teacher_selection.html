@@ -52,9 +52,8 @@
     function selectProfile(profileId) {
       // Store the selected profile in localStorage
       localStorage.setItem('selectedProfile', profileId);
-
       // Redirect to the index.html page
-      window.location.href = 'index.html';
+      window.location.href = `/chat_bot?profileId=${profileId}`;
     }
   </script>
 </body>
