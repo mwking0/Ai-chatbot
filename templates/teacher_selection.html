@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>AI Instructor Selection</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/teacher_selection.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="header-content">
+      <h1>Welcome to AI Instructor Selection</h1>
+      <p>This website helps students choose the AI instructor named "Quibot" that they feel most comfortable with. Scroll
+        down to explore the profiles of our AI instructors.</p>
+    </div>
+  </header>
+
+  <!-- AI Instructors Profiles -->
+  <section class="profiles">
+    <div class="profile" onclick="selectProfile(1)">
+      <h2>AI Instructor 1</h2>
+      <p>Prompts of AI Instructor 1:</p>
+      <ul>
+        <li>Sample Prompt 1</li>
+        <li>Sample Prompt 2</li>
+        <!-- Add more prompts as needed -->
+      </ul>
+    </div>
+    <div class="profile" onclick="selectProfile(2)">
+      <h2>AI Instructor 2</h2>
+      <p>Prompts of AI Instructor 2:</p>
+      <ul>
+        <li>Sample Prompt 1</li>
+        <li>Sample Prompt 2</li>
+        <!-- Add more prompts as needed -->
+      </ul>
+    </div>
+    <div class="profile" onclick="selectProfile(3)">
+      <h2>AI Instructor 3</h2>
+      <p>Prompts of AI Instructor 3:</p>
+      <ul>
+        <li>Sample Prompt 1</li>
+        <li>Sample Prompt 2</li>
+        <!-- Add more prompts as needed -->
+      </ul>
+    </div>
+  </section>
+
+  <script>
+    function selectProfile(profileId) {
+      // Store the selected profile in localStorage
+      localStorage.setItem('selectedProfile', profileId);
+
+      // Redirect to the index.html page
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

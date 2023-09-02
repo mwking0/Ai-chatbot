@@ -2,7 +2,7 @@ from dotenv import load_dotenv, find_dotenv
 import requests
 # from playsound import playsound
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from routes import get_response_from_teacher1
 
 app = Flask(__name__)
@@ -21,6 +21,18 @@ def send_message():
     message = get_response_from_teacher1(human_input)
     return message
 
+@app.route('/get_chat_response', methods=['POST'])
+def get_chat_response():
+    try:
+        data = request.json
+        user_input = data['user_input']
+
+        # Call your GPT-3 function to get a response
+        response = get_response_from_teacher1(user_input)
+
+        return jsonify({'response': response})
+    except Exception as e:
+        return jsonify({'error': str(e)})
 
 if __name__ == "__main__":
     app.run(debug=True)
