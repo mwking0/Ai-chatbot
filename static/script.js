@@ -2,6 +2,7 @@ const chatInput = document.querySelector("#chat-input");
 const sendButton = document.querySelector("#send-btn");
 const chatContainer = document.querySelector(".chat-container");
 const themeButton = document.querySelector("#theme-btn");
+const deleteButton = document.querySelector("#delete-btn");
 
 let userText = null;
 const API_KEY = "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"; // Paste your API key here
@@ -29,7 +30,6 @@ const createChatElement = (content, className) => {
     chatDiv.innerHTML = content;
     return chatDiv; // Return the created chat div
 }
-
 const getChatResponse = async (incomingChatDiv) => {
     const API_URL = "https://api.openai.com/v1/completions";
     const pElement = document.createElement("p");
@@ -117,6 +117,14 @@ const handleOutgoingChat = () => {
     chatContainer.scrollTo(0, chatContainer.scrollHeight);
     setTimeout(showTypingAnimation, 500);
 }
+
+deleteButton.addEventListener("click", () => {
+    // Remove the chats from local storage and call loadDataFromLocalstorage function
+    if(confirm("Are you sure you want to delete all the chats?")) {
+        localStorage.removeItem("all-chats");
+        loadDataFromLocalstorage();
+    }
+});
 
 themeButton.addEventListener("click", () => {
     // Toggle body's class for the theme mode and save the updated theme to the local storage
