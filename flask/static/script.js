@@ -4,6 +4,7 @@ const chatContainer = document.querySelector(".chat-container");
 const themeButton = document.querySelector("#theme-btn");
 const deleteButton = document.querySelector("#delete-btn");
 const infoButton = document.querySelector("#info-btn");
+const uploadButton = document.querySelector("#upload-btn");
 
 let userText = null;
 
@@ -15,8 +16,8 @@ const loadDataFromLocalstorage = () => {
     themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
 
     const defaultText = `<div class="default-text">
-                            <h1>Quibot</h1>
-                            <p>Start a conversation and explore the power of our instructor.<br> Your chat history will be displayed here.</p>
+                            <h1>Inspiring.ai</h1>
+                            <p>Start your conversation and explore the power of our instructor.<br> Your chat history will be displayed here.</p>
                         </div>`
 
     chatContainer.innerHTML = localStorage.getItem("all-chats") || defaultText;

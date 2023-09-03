@@ -2,45 +2,243 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>AI Instructor Selection</title>
+    <title>AI Instructor - Inspiring</title>
     <link rel="stylesheet" href="../static/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/teacher_selection.css">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <link href="../static/lib/flaticon/font/flaticon.css" rel="stylesheet">
+    <link href="../static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../static/css/style.css" rel="stylesheet">
 </head>
 <body>
-<!-- Header Section -->
-<header class="header">
-    <div class="header-content">
-        <h1>Welcome to AI Instructor Selection</h1>
-        <p>This website helps students choose the AI instructor that they feel most comfortable with.</p>
-        <p>Scroll down to explore the profiles of our AI instructors.</p>
-    </div>
-</header>
 
-<!-- AI Instructors Profiles -->
-<section class="profiles">
-    <div class="profile" onclick="selectProfile(1)">
-        <img src="images/english professor.jpg" alt="English Professor">
-        <h2>Fathi - English Instructor</h2>
-        <p>I'm a funny professor, Ask me anything!</p>
-    </div>
-    <div class="profile" onclick="selectProfile(2)">
-        <h2>Hasna - Therapist</h2>
-        <p>Your life therapist Hasna</p>
-    </div>
-    <div class="profile" onclick="selectProfile(3)">
-        <h2>Josh - Sports teacher</h2>
-        <p>Helping you build your core and physique</p>
-    </div>
-</section>
 
-<script>
-    function selectProfile(profileId) {
-        // Store the selected profile in localStorage
-        localStorage.setItem('selectedProfile', profileId);
-        // Redirect to the index.html page
-        window.location.href = `/chat_bot?profileId=${profileId}`;
-    }
-</script>
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-light position-relative shadow">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
+            <a href="" class="navbar-brand font-weight-bold text-secondary" style="font-size: 50px;">
+    
+                <span class="text-primary">Inspiring.ai</span>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav font-weight-bold mx-auto py-0">
+                    <a href="#" class="nav-item nav-link active">Home</a>
+                    <a href="#" class="nav-item nav-link">About</a>
+                    <a href="#" class="nav-item nav-link">Teachers</a>
+                    <a href="#" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="" class="btn btn-primary px-4">Join Class</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <div class="container-fluid bg-primary px-0 px-md-5 mb-5">
+                <div class="row align-items-center px-3">
+                    <div class="col-lg-6 text-center text-lg-left">
+                        <h1>Welcome to AI Instructor</h1>
+                        <p>This website helps students choose the AI instructor that they feel most comfortable with.</p>
+                        <p>Scroll down to explore the profiles of our AI instructors.</p>
+                        <a href="" class="btn btn-secondary mt-1 py-3 px-5">Learn More</a>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-right">
+                        <img class="img-fluid mt-5" src="../static/images/ai_teacher.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- AI Instructors Profiles Start -->
+    <section class="profiles">
+    <div class="container-fluid py-5">
+        <div class="container p-0">
+            <div class="text-center pb-2">
+                <p class="section-title px-5"><span class="px-2">Our professors</span></p>
+                <h1 class="mb-4">Try it now!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel">
+                <div class="testimonial-item px-3" onclick="selectProfile(1)">
+                    <div class="bg-light shadow-sm rounded mb-4 p-4">
+                        <h3 class="fas fa-quote-left text-primary mr-3"></h3>
+                        I'm a funny professor, Ask me anything!
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <img class="rounded-circle" src="../static/images/english professor.jpg" style="width: 70px; height: 70px;" alt="English Professor">
+                        <div class="pl-3">
+                            <h5>Fathi</h5>
+                            <i>English Instructor</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item px-3" onclick="selectProfile(2)">
+                    <div class="bg-light shadow-sm rounded mb-4 p-4">
+                        <h3 class="fas fa-quote-left text-primary mr-3"></h3>
+                        Your life therapist Hasna
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <img class="rounded-circle" src="../static/images/therapist.jpg" style="width: 70px; height: 70px;" alt="Image">
+                        <div class="pl-3">
+                            <h5>Hasna</h5>
+                            <i>Therapist</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item px-3" onclick="selectProfile(3)">
+                    <div class="bg-light shadow-sm rounded mb-4 p-4">
+                        <h3 class="fas fa-quote-left text-primary mr-3"></h3>
+                        Helping you build your core and physique
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <img class="rounded-circle" src="../static/images/sport.jpg" style="width: 70px; height: 70px;" alt="Image">
+                        <div class="pl-3">
+                            <h5>Josh</h5>
+                            <i>Sports teacher</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item px-3" onclick="selectProfile(4)">
+                    <div class="bg-light shadow-sm rounded mb-4 p-4">
+                        <h3 class="fas fa-quote-left text-primary mr-3"></h3>
+                        Let's journey through the treasures of history together.
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <img class="rounded-circle" src="../static/images/history.jpg" style="width: 70px; height: 70px;" alt="Image">
+                        <div class="pl-3">
+                            <h5>Mondher</h5>
+                            <i>Historian</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </section>
+    <!--AI Instructors Profiles End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5">
+        <div class="row pt-5">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <a href="" class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0" style="font-size: 40px; line-height: 40px;">
+                    <span class="text-white">Inspiring.ai</span>
+                </a>
+                <p></p>
+                <div class="d-flex justify-content-start mt-4">
+                    <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+                        style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+                        style="width: 38px; height: 38px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+                        style="width: 38px; height: 38px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+                        style="width: 38px; height: 38px;" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">Get In Touch</h3>
+                <div class="d-flex">
+                    <h4 class="fa fa-map-marker-alt text-primary"></h4>
+                    <div class="pl-3">
+                        <h5 class="text-white">Address</h5>
+                        <p>habib bourguiba Street, Tunis, Tunisia</p>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <h4 class="fa fa-envelope text-primary"></h4>
+                    <div class="pl-3">
+                        <h5 class="text-white">Email</h5>
+                        <p>info@inspiring.ai</p>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <h4 class="fa fa-phone-alt text-primary"></h4>
+                    <div class="pl-3">
+                        <h5 class="text-white">Phone</h5>
+                        <p>+216 47 156 489</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">Quick Links</h3>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About Us</a>
+                    <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Teachers</a>
+                    <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">Newsletter</h3>
+                <form action="">
+                    <div class="form-group">
+                        <input type="text" class="form-control border-0 py-4" placeholder="Your Name" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control border-0 py-4" placeholder="Your Email"
+                            required="required" />
+                    </div>
+                    <div>
+                        <button class="btn btn-primary btn-block border-0 py-3" type="submit">Submit Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container-fluid pt-5" style="border-top: 1px solid rgba(23, 162, 184, .2);;">
+            <p class="m-0 text-center text-white">
+                &copy; <a class="text-primary font-weight-bold" href="#">Inspiring.ai</a>. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary p-3 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/lib/easing/easing.min.js"></script>
+    <script src="../static/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../static/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="../static/lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="../static/mail/jqBootstrapValidation.min.js"></script>
+    <script src="../static/mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../static/js/main.js"></script>
+
+    <script>
+        function selectProfile(profileId) {
+            // Store the selected profile in localStorage
+            localStorage.setItem('selectedProfile', profileId);
+            // Redirect to the index.html page
+            window.location.href = `/chat_bot?profileId=${profileId}`;
+        }
+    </script>
+
+
 </body>
 </html>
