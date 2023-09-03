@@ -1,9 +1,13 @@
 /* Additional styles for the improved AI instructor selection page */
 .header {
-  background-color: #25bba9;
+  background-color: #00b1f8;
   color: #fff;
   text-align: center;
   padding: 100px 0;
+}
+
+body {
+  background: #FFFFFF;
 }
 
 .header h1 {
