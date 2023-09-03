@@ -3,7 +3,8 @@ from langchain import OpenAI, LLMChain, PromptTemplate
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.memory import \
     ConversationBufferWindowMemory  # to keep the history of the current conversation with the chatbot
-
+from playsound import playsound
+import requests
 
 load_dotenv(find_dotenv())
 embeddings = OpenAIEmbeddings()
@@ -57,5 +58,22 @@ def get_response_from_teacher(human_input, profile_id):
     return output
 
 
+#ELEVEN_LABS_API_KEY=os.getenv("ELEVEN_LABS_API_KEY")
 
+def get_voice_message(message):
+    payload={
+        "text":message,
+        "model_id":"eleven_monolingual_v1"
+        "voice_settings":{
+            "stability":0,
+            "similatrity_boost":0
+            }
+        }
+    headers={
+        'accept':'audio/mpeg',
+        'xi-api-key': ELEVEN_LABS_API_KEY,
+        'content_type': 'application/json'
+    }
+
+    response=requests.post
 
