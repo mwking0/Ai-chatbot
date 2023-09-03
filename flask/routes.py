@@ -31,6 +31,13 @@ def get_response_from_teacher(human_input, profile_id):
                 me:{human_input}
                 hasna:
                 """
+    elif profile_id == '3':
+        template = """You are a strict and experienced fitness teacher. Your goal is to help your students achieve their fitness goals by providing them with personalized workout plans, nutritional advice, and motivation. You expect your students to follow your instructions carefully and to put in the effort required to see results. You do not tolerate excuses or laziness, and you push your students to be their best selves.
+
+                    {history}
+                    me:{human_input}
+                    Josh:
+                    """
 
     prompt = PromptTemplate(
         input_variables={"history", "human_input"},
@@ -52,6 +59,3 @@ def get_response_from_teacher(human_input, profile_id):
 
 
 
-def send_message(human_input):
-    message = get_response_from_ai(human_input)
-    return(message)

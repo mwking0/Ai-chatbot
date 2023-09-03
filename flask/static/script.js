@@ -15,8 +15,8 @@ const loadDataFromLocalstorage = () => {
     themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
 
     const defaultText = `<div class="default-text">
-                            <h1>ChatGPT Clone</h1>
-                            <p>Start a conversation and explore the power of AI.<br> Your chat history will be displayed here.</p>
+                            <h1>Quibot</h1>
+                            <p>Start a conversation and explore the power of our instructor.<br> Your chat history will be displayed here.</p>
                         </div>`
 
     chatContainer.innerHTML = localStorage.getItem("all-chats") || defaultText;
@@ -30,43 +30,6 @@ const createChatElement = (content, className) => {
     chatDiv.innerHTML = content;
     return chatDiv; // Return the created chat div
 }
-const getChatResponse = async (incomingChatDiv, userText) => {
-    try {
-        // Send a POST request with the user's input to get a response
-        const response = await fetch('/send_message', {
-            method: 'POST',
-            body: JSON.stringify({ human_input: userText }), // Send user's input as JSON
-            headers: {
-                'Content-Type': 'application/json', // Set the content type
-            },
-        });
-
-        if (response.ok) {
-            const data = await response.json(); // Parse the JSON response
-            const responseText = data.message; // Extract the response text
-
-            // Create a paragraph element with the response text
-            const pElement = document.createElement("p");
-            pElement.textContent = responseText;
-
-            // Remove the typing animation, append the paragraph element, and save chats to local storage
-            incomingChatDiv.querySelector(".typing-animation").remove();
-            incomingChatDiv.querySelector(".chat-details").appendChild(pElement);
-            localStorage.setItem("all-chats", chatContainer.innerHTML);
-            chatContainer.scrollTo(0, chatContainer.scrollHeight);
-        } else {
-            // Handle error responses here
-            console.error('Error response:', response.status);
-            // You can add error handling logic or display an error message in the chat
-        }
-    } catch (error) {
-        console.error('Fetch error:', error);
-        // Handle fetch errors here
-        // You can add error handling logic or display an error message in the chat
-    }
-}
-
-
 
 
 
@@ -80,26 +43,6 @@ const copyResponse = (copyBtn) => {
     navigator.clipboard.writeText(reponseTextElement.textContent);
     copyBtn.textContent = "done";
     setTimeout(() => copyBtn.textContent = "content_copy", 1000);
-}
-
-const showTypingAnimation = () => {
-    // Display the typing animation and call the getChatResponse function
-    const html = `<div class="chat-content">
-                    <div class="chat-details">
-                        <img src="images/chatbot.jpg" alt="chatbot-img">
-                        <div class="typing-animation">
-                            <div class="typing-dot" style="--delay: 0.2s"></div>
-                            <div class="typing-dot" style="--delay: 0.3s"></div>
-                            <div class="typing-dot" style="--delay: 0.4s"></div>
-                        </div>
-                    </div>
-                    <span onclick="copyResponse(this)" class="material-symbols-rounded">content_copy</span>
-                </div>`;
-    // Create an incoming chat div with typing animation and append it to chat container
-    const incomingChatDiv = createChatElement(html, "incoming");
-    chatContainer.appendChild(incomingChatDiv);
-    chatContainer.scrollTo(0, chatContainer.scrollHeight);
-    getChatResponse(incomingChatDiv);
 }
 
 
@@ -148,6 +91,39 @@ const handleOutgoingChat = () => {
     });
 }
 
+
+
+const ReportinfoChat = () => {
+    userText = " Write a detailed report about the previous conversation if it exists, outlining the areas that the userstruggled the most with and the areas that he understood quickly"
+    // Create a FormData object and append the user's message to it
+    const formData = new FormData();
+    formData.append('human_input', userText);
+
+    // Send a POST request with the FormData object as the body
+    fetch('/send_message', {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+
+
+        // Display the server's response in the chat
+        const responseHtml = `<div class="chat-content">
+                                <div class="chat-details">
+                                    <img src="images/chatbot.jpg" alt="chatbot-img">
+                                    <p>${data.message}</p>
+                                </div>
+                              </div>`;
+        const incomingChatDiv = createChatElement(responseHtml, "incoming");
+        chatContainer.appendChild(incomingChatDiv);
+
+        chatContainer.scrollTo(0, chatContainer.scrollHeight);
+    });
+}
+
+
+
 deleteButton.addEventListener("click", () => {
     // Remove the chats from local storage and call loadDataFromLocalstorage function
     if(confirm("Are you sure you want to delete all the chats?")) {
@@ -184,3 +160,4 @@ loadDataFromLocalstorage();
 sendButton.addEventListener("click", handleOutgoingChat);
 
 
+infoButton.addEventListener("click", ReportinfoChat);
