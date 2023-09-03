@@ -8,39 +8,39 @@
     <link rel="stylesheet" href="../static/teacher_selection.css">
 </head>
 <body>
-  <!-- Header Section -->
-  <header class="header">
+<!-- Header Section -->
+<header class="header">
     <div class="header-content">
-      <h1>Welcome to AI Instructor Selection</h1>
-      <p>This website helps students choose the AI instructor named "Quibot" that they feel most comfortable with. Scroll
-        down to explore the profiles of our AI instructors.</p>
+        <h1>Welcome to AI Instructor Selection</h1>
+        <p>This website helps students choose the AI instructor that they feel most comfortable with.</p>
+        <p>Scroll down to explore the profiles of our AI instructors.</p>
     </div>
-  </header>
+</header>
 
-  <!-- AI Instructors Profiles -->
-  <section class="profiles">
+<!-- AI Instructors Profiles -->
+<section class="profiles">
     <div class="profile" onclick="selectProfile(1)">
-      <h2>Fathi - English Instructor</h2>
-      <p>I'm a funny professor, Ask me anything!</p>
-
+        <img src="images/english professor.jpg" alt="English Professor">
+        <h2>Fathi - English Instructor</h2>
+        <p>I'm a funny professor, Ask me anything!</p>
     </div>
     <div class="profile" onclick="selectProfile(2)">
-      <h2>Hasna - Therapist</h2>
-      <p>Your life therapist Hasna</p>
+        <h2>Hasna - Therapist</h2>
+        <p>Your life therapist Hasna</p>
     </div>
     <div class="profile" onclick="selectProfile(3)">
-      <h2>Josh - Sports teacher</h2>
-      <p>Helping you build your core and physique</p>
+        <h2>Josh - Sports teacher</h2>
+        <p>Helping you build your core and physique</p>
     </div>
-  </section>
+</section>
 
-  <script>
+<script>
     function selectProfile(profileId) {
-      // Store the selected profile in localStorage
-      localStorage.setItem('selectedProfile', profileId);
-      // Redirect to the index.html page
-      window.location.href = `/chat_bot?profileId=${profileId}`;
+        // Store the selected profile in localStorage
+        localStorage.setItem('selectedProfile', profileId);
+        // Redirect to the index.html page
+        window.location.href = `/chat_bot?profileId=${profileId}`;
     }
-  </script>
+</script>
 </body>
 </html>
